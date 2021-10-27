@@ -26,3 +26,6 @@ jobs:
 
       - name: Available Buildx platforms
         run: echo ${{ steps.buildx.outputs.platforms }}
+
+      - name: Build multi architectures
+        run: docker buildx build --platform linux/amd64,linux/arm64 -t dhlparcel/docker-postgres-for-testing:test .
