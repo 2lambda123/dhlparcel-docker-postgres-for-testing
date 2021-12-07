@@ -1,5 +1,6 @@
-FROM postgres:14.1-alpine
+FROM postgis/postgis:11-2.5-alpine
 
-ENV PGDATA /var/lib/postgresql/data
-COPY ./config.sh        /docker-entrypoint-initdb.d/10-config.sh
+COPY ./config.sh        /docker-entrypoint-initdb.d/0-config.sh
 COPY ./create_db.sh     /docker-entrypoint-initdb.d/20-create_db.sh
+
+ENV POSTGRES_HOST_AUTH_METHOD trust
