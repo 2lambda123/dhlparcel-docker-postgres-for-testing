@@ -1,11 +1,9 @@
-FROM postgres:11.5
+FROM postgres:15.1
 
-MAINTAINER labianchin
+MAINTAINER dhlparcel
 
 ENV PGDATA /var/lib/postgresql/data
 COPY config.sh /docker-entrypoint-initdb.d/
-
-ENTRYPOINT ["/docker-entrypoint.sh"]
 
 EXPOSE 5432
 CMD ["postgres"]
